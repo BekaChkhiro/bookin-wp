@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+:root {
+  /* Brand Colors */
+  --color-slate-blue: #1F2937;
+  --color-soft-teal: #2DD4BF;
+  --color-off-white: #F9FAFB;
+  --color-warm-grey: #9CA3AF;
+  --color-error: #DC2626;
+
+  /* Semantic Colors */
+  --background: var(--color-off-white);
+  --foreground: var(--color-slate-blue);
+}
+
+@theme inline {
+  /* Brand Colors */
+  --color-slate-blue: #1F2937;
+  --color-soft-teal: #2DD4BF;
+  --color-off-white: #F9FAFB;
+  --color-warm-grey: #9CA3AF;
+  --color-error: #DC2626;
+
+  /* Semantic */
+  --color-background: var(--color-off-white);
+  --color-foreground: var(--color-slate-blue);
+
+  /* Font */
+  --font-sans: var(--font-inter);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-inter), system-ui, sans-serif;
+}
+
+/* Custom utility classes */
+.btn-primary {
+  @apply bg-soft-teal text-white font-semibold py-3 px-6 rounded-lg
+         hover:bg-soft-teal/90 transition-colors duration-200;
+}
+
+.btn-secondary {
+  @apply bg-slate-blue text-white font-semibold py-3 px-6 rounded-lg
+         hover:bg-slate-blue/90 transition-colors duration-200;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Focus styles for accessibility */
+*:focus-visible {
+  @apply outline-2 outline-offset-2 outline-soft-teal;
+}
