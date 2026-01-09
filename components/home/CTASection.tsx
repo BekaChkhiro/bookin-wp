@@ -16,7 +16,7 @@ export default function CTASection({ onGetStarted }: CTASectionProps) {
           understand the issue first, so you don&apos;t rush into the wrong decision.
         </p>
         <Button onClick={onGetStarted} size="lg">
-          Get a video diagnosis
+          GET A VIDEO DIAGNOSIS
         </Button>
         <p className="mt-4 text-sm text-warm-grey">
           <span className="inline-flex items-center">

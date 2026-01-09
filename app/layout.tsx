@@ -12,6 +12,9 @@ export const metadata: Metadata = {
   title: "All Sorted | Video Plumbing Diagnosis",
   description: "Before you book a plumber, speak to one on video. Get a clear diagnosis from a licensed Australian plumber in just 15 minutes.",
   keywords: ["plumber", "plumbing", "video diagnosis", "Australia", "home services"],
+  icons: {
+    icon: "/icon.svg",
+  },
 };
 
 export default function RootLayout({

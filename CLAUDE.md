@@ -95,12 +95,205 @@ All Sorted helps homeowners understand their plumbing issue **before** booking a
 ## Current Progress
 
 ### Status: PHASES 1-6 COMPLETED
-### Current Phase: Phase 7 (Polish)
-### Last Updated: January 7, 2025
+### Current Phase: Phase 8 (Client Revisions)
+### Last Updated: January 9, 2025
+
+---
+
+## ⚠️ START HERE - Session Tracking
+
+> **ახალი სესიის დაწყებისას:** წაიკითხე ეს სექცია პირველ რიგში!
+
+### 🔴 CURRENT STATUS: Phase 8 - Client Revisions
+### 📍 NEXT TASK: CR-11 (Payment - needs client discussion)
+### ✅ COMPLETED: 12/13 tasks
+
+---
+
+## Phase 8: Client Revisions (client-changes.md)
+
+### CR-01: Favicon/Logo Change [x]
+**Status:** COMPLETED
+**Priority:** Low
+**Files to modify:** `app/layout.tsx`, `app/icon.svg`
+**Tasks:**
+- [x] Find/create tick/checkmark icon (SVG)
+- [x] Add icon.svg to app folder (Next.js 14 convention)
+- [x] Update metadata in layout.tsx
+- [x] Test in browser tab
+
+---
+
+### CR-02: Availability Text Update [x]
+**Status:** COMPLETED
+**Priority:** High
+**Files to modify:** `components/layout/Header.tsx`, `components/home/Hero.tsx`
+**Tasks:**
+- [x] Find current "plumber available now" text
+- [x] Change to "The next plumber available is in 5 mins"
+- [x] Check both Header and Hero components (Hero had different text, only Header updated)
+
+---
+
+### CR-03: Tradie Portal Fake Login [x]
+**Status:** COMPLETED
+**Priority:** Medium
+**Files to modify:** `components/layout/Header.tsx`, new `components/ui/TradieLoginModal.tsx`
+**Tasks:**
+- [x] Create TradieLoginModal component
+- [x] Add username input field
+- [x] Add password input field
+- [x] Add submit button
+- [x] On submit: always show error "Invalid credentials"
+- [x] Connect to Tradie Portal button in Header (desktop + mobile)
+
+---
+
+### CR-04: Hero Image Replacement [x]
+**Status:** COMPLETED
+**Priority:** High
+**Files to modify:** `components/home/Hero.tsx`, `public/images/`
+**Tasks:**
+- [x] Find high-quality image: "plumber on video call, kitchen, overalls, professional"
+- [x] Download and add to public/images/ (plumber-call.webp)
+- [x] Update Hero.tsx to use new image
+- [x] Ensure image is not blurry
+
+---
+
+### CR-05: Section Repositioning + Trustpilot [x]
+**Status:** COMPLETED
+**Priority:** Medium
+**Files to modify:** `app/page.tsx`, relevant section component
+**Tasks:**
+- [x] Locate "Why Australians Love All Sorted" section (TrustBadges.tsx)
+- [x] Move it below "Get a quick diagnosis" section (HowItWorks.tsx)
+- [x] Update Trustpilot to show 5 stars (was 4 stars)
+- [x] Verify section order on page
+
+---
+
+### CR-06: Logo Size Adjustment [x]
+**Status:** COMPLETED
+**Priority:** Low
+**Files to modify:** `components/home/HowItWorks.tsx`
+**Tasks:**
+- [x] Find the "Get a quick diagnosis..." section
+- [x] Identify logo elements (icons)
+- [x] Increase logo sizes from w-8 h-8 to w-10 h-10 (+25%)
+- [x] Test visual balance
+
+---
+
+### CR-07: "GET A VIDEO DIAGNOSIS" Capitalization [x]
+**Status:** COMPLETED
+**Priority:** Low
+**Files to modify:** `components/home/Hero.tsx`, `components/home/CTASection.tsx`
+**Tasks:**
+- [x] Find "Get a Video Diagnosis" text (2 places)
+- [x] Change to "GET A VIDEO DIAGNOSIS" (all caps)
+- [x] Updated in Hero.tsx and CTASection.tsx
+
+---
+
+### CR-08: Footer Customer Support Icon [x]
+**Status:** COMPLETED
+**Priority:** Medium
+**Files to modify:** `components/layout/Footer.tsx`
+**Tasks:**
+- [x] Find house icon for customer support
+- [x] Replace with blue icon (matching Register/Licensed style)
+- [x] Use brand color: #2DD4BF (Soft Teal) - changed from orange gradient
+
+---
+
+### CR-09: Footer Email Update [x]
+**Status:** COMPLETED
+**Priority:** High
+**Files to modify:** `components/layout/Footer.tsx`
+**Tasks:**
+- [x] Find current email in footer
+- [x] Change to hello@allsorted.online
+- [x] Update any other email references (2 places updated)
+
+---
+
+### CR-10: Contact Us Popup Form [x]
+**Status:** COMPLETED
+**Priority:** High
+**Files to modify:** new `components/ui/ContactModal.tsx`, `components/layout/Footer.tsx`
+**Tasks:**
+- [x] Create ContactModal component
+- [x] Add fields: Name, Surname, Email, Phone, Message
+- [x] Add Submit button
+- [x] Form validation
+- [x] Email sending functionality (console.log placeholder - needs backend)
+- [x] Connect to "Contact Us" link in Footer
+- [x] Success/error states
+
+---
+
+### CR-11: Payment Integration [ ]
+**Status:** NEEDS DISCUSSION
+**Priority:** High
+**Files to modify:** TBD
+**Tasks:**
+- [ ] Clarify with client: Stripe? PayPal? Other?
+- [ ] Decide integration point (after booking form?)
+- [ ] Implement payment flow
+- [ ] Test payment
+
+---
+
+### CR-12: Mobile Optimization [x]
+**Status:** COMPLETED
+**Priority:** High (do last)
+**Files to modify:** All components
+**Tasks:**
+- [x] Test all pages on mobile viewport
+- [x] Fix responsive issues in Header (already good - has mobile menu)
+- [x] Fix responsive issues in Hero (improved: text-3xl on small screens)
+- [x] Fix responsive issues in all sections (all use responsive grids)
+- [x] Fix responsive issues in Footer (already good - responsive grids)
+- [x] Test modals on mobile (fixed ContactModal name/surname stacking)
+- [x] Cross-browser testing (code review complete)
+
+---
+
+### CR-13: Update Terms & Privacy Policy [x]
+**Status:** COMPLETED
+**Priority:** Medium
+**Files to modify:** `app/terms/page.tsx`
+**Tasks:**
+- [x] Replace existing terms content with new content from client-changes.md
+- [x] Replace existing privacy policy with new content
+- [x] Format properly with headings
+- [x] Update contact email to hello@allsorted.online
 
 ---
 
 ## Session Log
+
+### Session 3 - January 10, 2025
+- [x] CR-02: Updated availability text in Header.tsx ("The next plumber available is in 5 mins")
+- [x] CR-09: Updated footer email to hello@allsorted.online (2 places)
+- [x] CR-04: Updated hero image to plumber-call.webp
+- [x] CR-10: Created ContactModal with form validation and connected to Footer
+- [x] CR-03: Created TradieLoginModal (always shows "Invalid credentials") and connected to Header
+- [x] CR-05: Repositioned sections (TrustBadges after HowItWorks) + fixed Trustpilot to 5 stars
+- [x] CR-08: Changed Footer SupportIcon from orange to Soft Teal
+- [x] CR-13: Updated Terms & Privacy Policy with full client content
+- [x] CR-01: Created checkmark favicon (icon.svg) with Soft Teal background
+- [x] CR-06: Increased HowItWorks icons from w-8 to w-10 (+25%)
+- [x] CR-07: Changed "Get a video diagnosis" to "GET A VIDEO DIAGNOSIS" (uppercase)
+- [x] CR-12: Mobile optimization - improved Hero title sizing, ContactModal form stacking
+
+### Session 2 - January 9, 2025
+- [x] Reviewed client-changes.md file
+- [x] Created detailed implementation plan for 13 client revision tasks
+- [x] Updated CLAUDE.md with Phase 8: Client Revisions
+- [x] Added session tracking system
+- [x] Started implementing changes (see Phase 8 status)
 
 ### Session 1 - January 7, 2025
 - [x] Analyzed project requirements from project-doc.md
@@ -188,16 +381,46 @@ booking-wp/
 ---
 
 ## Notes for Next Session
-- Dev server runs on http://localhost:3000
-- Run `npm run dev` to start
-- Phase 7 remaining: Polish & Optimization
-  - Add subtle animations/transitions
-  - Test mobile responsiveness thoroughly
-  - Add form validation (required fields)
-  - Accessibility improvements
-  - Performance check with Lighthouse
-- Consider adding real Calendly integration
-- May need to add more images/illustrations
+
+### 🚀 Quick Start for New Session
+1. Read the "⚠️ START HERE - Session Tracking" section
+2. Check which CR-XX task is next
+3. Run `npm run dev` to start dev server (http://localhost:3000)
+4. Work on the current task
+5. When done, update the task status to [x] COMPLETED
+6. Update "NEXT TASK" in START HERE section
+7. Update "COMPLETED: X/12 tasks" counter
+
+### Workflow Instructions
+```
+როცა სესია დაასრულებ:
+1. განაახლე შესრულებული task-ის სტატუსი: [ ] → [x]
+2. განაახლე "📍 NEXT TASK:" ველი შემდეგი task-ით
+3. განაახლე "✅ COMPLETED: X/12 tasks" რაოდენობა
+4. Session Log-ში დაამატე რა გააკეთე
+```
+
+### Task Priority Guide
+**High Priority (do first):**
+- CR-02: Availability Text
+- CR-04: Hero Image
+- CR-09: Footer Email
+- CR-10: Contact Form
+
+**Medium Priority:**
+- CR-03: Tradie Portal
+- CR-05: Section Repositioning
+- CR-08: Footer Icon
+- CR-13: Terms & Privacy
+
+**Low Priority:**
+- CR-01: Favicon
+- CR-06: Logo Size
+- CR-07: Text Caps
+
+**Do Last:**
+- CR-11: Payment (needs client discussion)
+- CR-12: Mobile Optimization (after all changes)
 
 ---
 

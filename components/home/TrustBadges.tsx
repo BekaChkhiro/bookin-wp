@@ -52,7 +52,7 @@ export default function TrustBadges() {
               <StarIcon />
               <StarIcon />
               <StarIcon />
-              <StarIcon filled={false} />
+              <StarIcon />
             </div>
           </div>
 

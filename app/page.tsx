@@ -19,8 +19,8 @@ export default function Home() {
 
       <main className="flex-1">
         <Hero onGetStarted={() => setIsModalOpen(true)} />
-        <TrustBadges />
         <HowItWorks />
+        <TrustBadges />
         <CTASection onGetStarted={() => setIsModalOpen(true)} />
         <Testimonials />
       </main>
