@@ -37,10 +37,10 @@ export default function Hero({ onGetStarted }: HeroProps) {
           {/* Left side - Text & CTA */}
           <div>
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-slate-blue leading-tight">
-              Before you book a plumber, speak to one on video.
+              Video Call a Plumber And Know What You're Dealing With Fast
             </h1>
             <p className="mt-6 text-lg md:text-xl text-warm-grey">
-              Think of it like tele-health, but for plumbing.
+              In minutes, you'll either fix it yourself, know exactly what the problem is, or have a plumber dispatched with the issue already diagnosed. Think of it like telehealth - but for plumbing.
             </p>
 
             {/* CTA Box */}
@@ -109,7 +109,7 @@ export default function Hero({ onGetStarted }: HeroProps) {
           {/* Right side - Image */}
           <div className="hidden lg:block">
             <Image
-              src="/images/plumber-call.webp"
+              src="/images/hero-video-call.png"
               alt="Video call with a licensed plumber"
               width={600}
               height={400}

@@ -29,7 +29,7 @@ export default function Header() {
           {/* Center - Availability (hidden on mobile) */}
           <div className="hidden md:flex items-center text-slate-blue">
             <div className="w-2 h-2 rounded-full bg-soft-teal mr-2 animate-pulse" />
-            <span className="text-sm font-medium">The next plumber available is in 5 mins</span>
+            <span className="text-sm font-medium">The next plumber available is in 5 minutes</span>
           </div>
 
           {/* Right side */}
@@ -79,7 +79,7 @@ export default function Header() {
             <div className="flex flex-col space-y-4">
               <div className="flex items-center text-slate-blue">
                 <div className="w-2 h-2 rounded-full bg-soft-teal mr-2 animate-pulse" />
-                <span className="text-sm font-medium">The next plumber available is in 5 mins</span>
+                <span className="text-sm font-medium">The next plumber available is in 5 minutes</span>
               </div>
               <Button variant="outline" size="sm" className="w-full" onClick={() => setIsTradieLoginOpen(true)}>
                 Tradie Portal

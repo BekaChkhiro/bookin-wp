@@ -37,7 +37,7 @@ const steps = [
   {
     icon: ClipboardIcon,
     title: "Decide the right next step",
-    description: "We'll tell you whether it's something simple, something to keep an eye on, or something that needs a call-out.",
+    description: "You decide to:\n• Fix it yourself if it's simple\n• Get a clear explanation and know your next steps\n• We send a plumber who already knows the issue to fix it",
   },
   {
     icon: CalendarPlusIcon,
@@ -59,7 +59,7 @@ export default function HowItWorks() {
               <h3 className="text-xl font-semibold text-slate-blue mb-3">
                 {step.title}
               </h3>
-              <p className="text-warm-grey leading-relaxed">{step.description}</p>
+              <p className="text-warm-grey leading-relaxed whitespace-pre-line">{step.description}</p>
             </div>
           ))}
         </div>
