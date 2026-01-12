@@ -24,7 +24,10 @@ export default function CTASection({ onGetStarted }: CTASectionProps) {
             Takes 15 minutes
           </span>
           <span className="mx-2">·</span>
-          <span>No obligation</span>
+          <span className="inline-flex items-center">
+            <span className="w-1.5 h-1.5 rounded-full bg-soft-teal mr-1.5" />
+            No obligation
+          </span>
         </p>
       </div>
     </section>

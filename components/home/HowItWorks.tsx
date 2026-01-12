@@ -37,7 +37,7 @@ const steps = [
   {
     icon: ClipboardIcon,
     title: "Decide the right next step",
-    description: "You decide to:\n• Fix it yourself if it's simple\n• Get a clear explanation and know your next steps\n• We send a plumber who already knows the issue to fix it",
+    description: "1. Fix it yourself if it's simple — 2. Get a clear explanation — 3. We send a plumber who already knows the issue",
   },
   {
     icon: CalendarPlusIcon,
