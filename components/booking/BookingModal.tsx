@@ -63,6 +63,7 @@ const jobStages = [
 export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState<FormData>(initialFormData);
+  const [errors, setErrors] = useState<{ description?: string; name?: string; email?: string; phone?: string }>({});
   const totalSteps = 7;
 
   if (!isOpen) return null;
@@ -169,13 +170,30 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
           <StepContainer title="Describe what you need done">
             <textarea
               value={formData.description}
-              onChange={(e) => updateFormData("description", e.target.value)}
+              onChange={(e) => {
+                updateFormData("description", e.target.value);
+                if (errors.description) setErrors((prev) => ({ ...prev, description: undefined }));
+              }}
               placeholder="Please describe your plumbing issue in detail..."
-              className="w-full h-40 px-4 py-3 border border-gray-200 rounded-lg
+              className={`w-full h-40 px-4 py-3 border rounded-lg
                        text-slate-blue placeholder:text-warm-grey resize-none
-                       focus:outline-none focus:ring-2 focus:ring-soft-teal"
+                       focus:outline-none focus:ring-2 focus:ring-soft-teal ${
+                         errors.description ? "border-red-500" : "border-gray-200"
+                       }`}
             />
-            <Button onClick={nextStep} className="w-full mt-4">
+            {errors.description && (
+              <p className="text-red-500 text-sm mt-1">{errors.description}</p>
+            )}
+            <Button
+              onClick={() => {
+                if (!formData.description.trim()) {
+                  setErrors((prev) => ({ ...prev, description: "Please describe your plumbing issue" }));
+                  return;
+                }
+                nextStep();
+              }}
+              className="w-full mt-4"
+            >
               Continue
             </Button>
           </StepContainer>
@@ -221,39 +239,76 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
         );
 
       case 7:
+        const validateContact = () => {
+          const newErrors: { name?: string; email?: string; phone?: string } = {};
+          if (!formData.name.trim()) newErrors.name = "Name is required";
+          if (!formData.email.trim()) {
+            newErrors.email = "Email is required";
+          } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+            newErrors.email = "Please enter a valid email";
+          }
+          if (!formData.phone.trim()) newErrors.phone = "Phone number is required";
+          setErrors(newErrors);
+          return Object.keys(newErrors).length === 0;
+        };
+
         return (
           <StepContainer title="Your contact details">
             <p className="text-sm text-warm-grey mb-4">
               These will be used to connect you to a qualified plumber
             </p>
             <div className="space-y-4">
-              <input
-                type="text"
-                placeholder="Your name"
-                value={formData.name}
-                onChange={(e) => updateFormData("name", e.target.value)}
-                className="w-full px-4 py-3 border border-gray-200 rounded-lg
-                         text-slate-blue placeholder:text-warm-grey
-                         focus:outline-none focus:ring-2 focus:ring-soft-teal"
-              />
-              <input
-                type="email"
-                placeholder="Email address"
-                value={formData.email}
-                onChange={(e) => updateFormData("email", e.target.value)}
-                className="w-full px-4 py-3 border border-gray-200 rounded-lg
-                         text-slate-blue placeholder:text-warm-grey
-                         focus:outline-none focus:ring-2 focus:ring-soft-teal"
-              />
-              <input
-                type="tel"
-                placeholder="Phone number"
-                value={formData.phone}
-                onChange={(e) => updateFormData("phone", e.target.value)}
-                className="w-full px-4 py-3 border border-gray-200 rounded-lg
-                         text-slate-blue placeholder:text-warm-grey
-                         focus:outline-none focus:ring-2 focus:ring-soft-teal"
-              />
+              <div>
+                <input
+                  type="text"
+                  placeholder="Your name *"
+                  value={formData.name}
+                  onChange={(e) => {
+                    updateFormData("name", e.target.value);
+                    if (errors.name) setErrors((prev) => ({ ...prev, name: undefined }));
+                  }}
+                  className={`w-full px-4 py-3 border rounded-lg
+                           text-slate-blue placeholder:text-warm-grey
+                           focus:outline-none focus:ring-2 focus:ring-soft-teal ${
+                             errors.name ? "border-red-500" : "border-gray-200"
+                           }`}
+                />
+                {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
+              </div>
+              <div>
+                <input
+                  type="email"
+                  placeholder="Email address *"
+                  value={formData.email}
+                  onChange={(e) => {
+                    updateFormData("email", e.target.value);
+                    if (errors.email) setErrors((prev) => ({ ...prev, email: undefined }));
+                  }}
+                  className={`w-full px-4 py-3 border rounded-lg
+                           text-slate-blue placeholder:text-warm-grey
+                           focus:outline-none focus:ring-2 focus:ring-soft-teal ${
+                             errors.email ? "border-red-500" : "border-gray-200"
+                           }`}
+                />
+                {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
+              </div>
+              <div>
+                <input
+                  type="tel"
+                  placeholder="Phone number *"
+                  value={formData.phone}
+                  onChange={(e) => {
+                    updateFormData("phone", e.target.value);
+                    if (errors.phone) setErrors((prev) => ({ ...prev, phone: undefined }));
+                  }}
+                  className={`w-full px-4 py-3 border rounded-lg
+                           text-slate-blue placeholder:text-warm-grey
+                           focus:outline-none focus:ring-2 focus:ring-soft-teal ${
+                             errors.phone ? "border-red-500" : "border-gray-200"
+                           }`}
+                />
+                {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone}</p>}
+              </div>
             </div>
 
             {/* Info box */}
@@ -275,7 +330,15 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
               marketing communications from All Sorted and its partners. You may unsubscribe at any time.
             </p>
 
-            <Button onClick={handleSubmit} className="w-full mt-4" size="lg">
+            <Button
+              onClick={() => {
+                if (validateContact()) {
+                  handleSubmit();
+                }
+              }}
+              className="w-full mt-4"
+              size="lg"
+            >
               Book a 15 min Video Call
             </Button>
           </StepContainer>
