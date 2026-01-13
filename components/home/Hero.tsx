@@ -112,7 +112,7 @@ export default function Hero({ onGetStarted }: HeroProps) {
           {/* Right side - Image */}
           <div className="hidden lg:block">
             <Image
-              src="/images/plumber-hero.jpg"
+              src="/images/plumber-call.webp"
               alt="Video call with a licensed plumber"
               width={600}
               height={500}
