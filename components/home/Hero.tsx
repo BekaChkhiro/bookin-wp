@@ -33,7 +33,7 @@ export default function Hero({ onGetStarted }: HeroProps) {
     <section className="bg-off-white py-16 md:py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Hero Content */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-[70%_30%] gap-8 items-center">
           {/* Left side - Text & CTA */}
           <div>
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-slate-blue leading-tight">
