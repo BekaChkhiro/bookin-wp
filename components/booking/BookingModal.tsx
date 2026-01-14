@@ -360,7 +360,6 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
                   prefill={{
                     name: formData.name,
                     email: formData.email,
-                    smsReminderPhoneNumber: formData.phone,
                   }}
                   styles={{
                     height: "630px",
