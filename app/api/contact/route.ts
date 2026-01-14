@@ -65,8 +65,10 @@ export async function POST(request: Request) {
       );
     }
 
+    const fromEmail = process.env.EMAIL_FROM || "onboarding@resend.dev";
+
     const { error } = await resend.emails.send({
-      from: "All Sorted Contact Form <onboarding@resend.dev>",
+      from: `All Sorted <${fromEmail}>`,
       to: recipientEmail,
       replyTo: body.email,
       subject: `New Contact Form Submission from ${body.name} ${body.surname}`,
