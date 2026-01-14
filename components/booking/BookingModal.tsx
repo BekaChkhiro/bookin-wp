@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { InlineWidget } from "react-calendly";
 import Button from "@/components/ui/Button";
 
 interface BookingModalProps {
@@ -346,34 +347,29 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
 
       case 8:
         return (
-          <StepContainer title="Booking confirmed!">
-            <div className="text-center py-8">
-              <div className="w-20 h-20 rounded-full bg-soft-teal mx-auto mb-6 flex items-center justify-center">
-                <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold text-slate-blue mb-2">
-                Thank you, {formData.name}!
-              </h3>
-              <p className="text-warm-grey mb-6">
-                Your video consultation is booked. Check your email for confirmation and the meeting link.
-              </p>
-              <p className="text-lg font-medium text-slate-blue">
-                $29 for 15 minutes
-              </p>
-              <p className="text-sm text-warm-grey mt-1">
-                Payment will be processed via Calendly/Stripe
+          <StepContainer title="Book your video call">
+            <div className="text-center">
+              <p className="text-warm-grey mb-4">
+                Select a time that works for you. Payment of <span className="font-semibold text-slate-blue">$29</span> will be collected at booking.
               </p>
 
-              {/* Placeholder for Calendly embed */}
-              <div className="mt-6 p-4 border border-dashed border-gray-200 rounded-lg">
-                <p className="text-warm-grey text-sm">
-                  [Calendly booking widget will appear here]
-                </p>
+              {/* Calendly Widget */}
+              <div className="mt-4 -mx-6">
+                <InlineWidget
+                  url="https://calendly.com/petersemrany1/15-minute-video-diagnosis"
+                  prefill={{
+                    name: formData.name,
+                    email: formData.email,
+                    smsReminderPhoneNumber: formData.phone,
+                  }}
+                  styles={{
+                    height: "630px",
+                    minWidth: "320px",
+                  }}
+                />
               </div>
 
-              <Button onClick={onClose} variant="outline" className="mt-6">
+              <Button onClick={onClose} variant="outline" className="mt-4">
                 Close
               </Button>
             </div>
